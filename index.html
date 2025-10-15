@@ -1,0 +1,2385 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="XVI Opolskie Warsztaty Medyczne - nowoczesne szkolenie dla profesjonalistów medycznych">
+    <title>XVI Opolskie Warsztaty Medyczne 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #60a5fa;
+            --dark-color: #1e293b;
+            --light-color: #f1f5f9;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --medical-gradient: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            background: var(--medical-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark-color);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--medical-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            z-index: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero-video.fade {
+            opacity: 0.1;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.5) 0%, rgba(56, 189, 248, 0.5) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--white);
+            z-index: 2;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+            position: relative;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .hero-date {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.3rem 3.5rem;
+            background: linear-gradient(135deg, #a4225d 0%, #8b1c4f 100%);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 40px rgba(164, 34, 93, 0.5);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(164, 34, 93, 0.7);
+            background: linear-gradient(135deg, #8b1c4f 0%, #6d1540 100%);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 15px 40px rgba(164, 34, 93, 0.5);
+            }
+            50% {
+                box-shadow: 0 15px 50px rgba(164, 34, 93, 0.7);
+            }
+        }
+
+        .cta-button {
+            animation: pulse 2s infinite;
+        }
+
+        .cta-button:hover {
+            animation: none;
+        }
+
+        /* Hero Organizatorzy */
+        .hero-organizers {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .hero-organizers-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-organizer-logo {
+            height: 70px;
+            min-width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .hero-organizer-logo:hover {
+            transform: translateY(-3px) scale(1.05);
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+        }
+
+        .hero-organizer-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--dark-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--medical-gradient);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light-color);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: var(--light-color);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .slideshow-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slideshow-image.active {
+            opacity: 1;
+        }
+
+        .slideshow-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 2;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--white);
+            transform: scale(1.3);
+        }
+
+        .dot:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Program Section */
+        .program {
+            background: var(--white);
+        }
+
+        /* Program Section - Professional Design */
+        .program-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Track Selector - Modern Tabs */
+        .track-selector {
+            display: flex;
+            gap: 0;
+            justify-content: center;
+            margin-bottom: 2rem;
+            background: var(--light-color);
+            padding: 0.5rem;
+            border-radius: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .track-btn {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .track-btn:hover {
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .track-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .track-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .track-price {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            font-weight: 700;
+        }
+
+        /* Track Content */
+        .track-content {
+            display: none;
+        }
+
+        .track-content.active {
+            display: block;
+            animation: fadeInUp 0.4s ease;
+        }
+
+        /* Track Tabs */
+        .track-tabs {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .track-tab {
+            background: var(--white);
+            border: 3px solid var(--light-color);
+            padding: 1.5rem 2.5rem;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 280px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .track-tab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+        }
+
+        .track-tab.active {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .track-tab-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .track-tab.active .track-tab-title {
+            color: var(--white);
+        }
+
+        .track-tab-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .track-tab.active .track-tab-price {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Track Content */
+        .track-content {
+            display: none;
+        }
+
+        .track-content.active {
+            display: block;
+            animation: fadeInUp 0.4s ease;
+        }
+
+        /* Day Tabs */
+        .day-tabs {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .day-tab {
+            background: var(--white);
+            border: 2px solid var(--light-color);
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: var(--dark-color);
+            position: relative;
+            flex: 1;
+            min-width: 300px;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        .day-tab:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .day-tab.active {
+            background: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        .day-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid var(--primary-color);
+        }
+
+        .day-date {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-top: 0.3rem;
+        }
+
+        /* Day Section */
+        .day-section {
+            display: none;
+        }
+
+        .day-section.active {
+            display: block;
+            animation: fadeInUp 0.4s ease;
+        }
+
+        /* Track Program Section */
+        .track-program-section {
+            margin-bottom: 3rem;
+        }
+
+        .track-program-section h3 {
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        /* Timeline - Professional Cards */
+        .program-timeline {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .timeline-item {
+            background: var(--white);
+            border-left: 4px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .timeline-item:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            transform: translateX(4px);
+        }
+
+        .timeline-item.break {
+            border-left-color: #60a5fa;
+            background: linear-gradient(to right, rgba(96, 165, 250, 0.05), transparent);
+        }
+
+        .timeline-item.sponsored {
+            border-left-color: #f59e0b;
+            background: linear-gradient(to right, rgba(245, 158, 11, 0.05), transparent);
+        }
+
+        .timeline-item.highlight {
+            border-left-color: #8b5cf6;
+            background: linear-gradient(to right, rgba(139, 92, 246, 0.05), transparent);
+        }
+
+        .timeline-item.important {
+            border-left-color: #ef4444;
+            background: linear-gradient(to right, rgba(239, 68, 68, 0.05), transparent);
+        }
+
+        .timeline-time {
+            background: var(--light-color);
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--primary-color);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60px;
+            white-space: nowrap;
+        }
+
+        .timeline-item.break .timeline-time {
+            background: rgba(96, 165, 250, 0.1);
+            color: #2563eb;
+        }
+
+        .timeline-item.sponsored .timeline-time {
+            background: rgba(245, 158, 11, 0.1);
+            color: #d97706;
+        }
+
+        .timeline-item.highlight .timeline-time {
+            background: rgba(139, 92, 246, 0.1);
+            color: #7c3aed;
+        }
+
+        .timeline-item.important .timeline-time {
+            background: rgba(239, 68, 68, 0.1);
+            color: #dc2626;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.15rem;
+            color: var(--dark-color);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .timeline-speaker {
+            color: #64748b;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timeline-speaker::before {
+            content: '•';
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .timeline-location {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timeline-location::before {
+            content: '▸';
+            color: #94a3b8;
+        }
+
+        .timeline-note {
+            background: var(--light-color);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 0.8rem;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .timeline-item.highlight .timeline-note {
+            border-left-color: #8b5cf6;
+        }
+
+        /* Speakers Section */
+        .speakers {
+            background: var(--light-color);
+        }
+
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .speaker-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .speaker-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .speaker-image {
+            width: 100%;
+            height: 300px;
+            background: var(--light-color);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .speaker-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .speaker-card:hover .speaker-image img {
+            transform: scale(1.05);
+        }
+
+        .speaker-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .speaker-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .speaker-title {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        /* Location Section */
+        .location {
+            background: var(--white);
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .location-details {
+            font-size: 1.1rem;
+        }
+
+        .location-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .location-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--medical-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .location-map {
+            width: 100%;
+            height: 400px;
+            background: var(--light-color);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-color);
+            font-size: 1.2rem;
+        }
+
+        /* Registration Section */
+        .registration {
+            background: var(--medical-gradient);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .registration .section-title {
+            color: var(--white);
+        }
+
+        .registration .section-title::after {
+            background: var(--white);
+        }
+
+        .registration-info {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .price-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .price-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .price-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1rem;
+            border-radius: 15px;
+        }
+
+        .price-features {
+            list-style: none;
+            text-align: left;
+            padding: 0;
+        }
+
+        .price-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .price-features li:last-child {
+            border-bottom: none;
+        }
+
+        .price-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .registration-cta {
+            margin-top: 3rem;
+        }
+
+        .registration-text {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .registration-note {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .submit-button {
+            background: var(--white);
+            color: var(--primary-color);
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Organizatorzy w sekcji rejestracji */
+        .organizers-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .organizers-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .organizer-logo {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem;
+            border-radius: 15px;
+            height: 100px;
+            min-width: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .organizer-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .organizer-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Partners Section */
+        .partners {
+            background: var(--light-color);
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .partner-logo {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 150px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .partner-logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: var(--white);
+            padding: 2rem 1.5rem 0.5rem;
+        }
+
+        footer a img:hover {
+            transform: scale(1.05);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #cbd5e1;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid #475569;
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--white);
+                width: 100%;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hero-video {
+                display: none;
+            }
+
+            .hero-organizers {
+                margin-top: 2rem;
+            }
+
+            .hero-organizer-logo {
+                height: 60px;
+                min-width: 120px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-description {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .track-selector {
+                flex-direction: column;
+                border-radius: 15px;
+            }
+
+            .track-btn {
+                border-radius: 12px;
+            }
+
+            .day-tabs {
+                flex-direction: column;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .timeline-time {
+                min-height: auto;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Professional Medical Icons */
+        .icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            position: relative;
+        }
+
+        .icon-calendar::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border: 2px solid currentColor;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .icon-calendar::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 8px;
+            border-left: 2px solid currentColor;
+            border-right: 2px solid currentColor;
+        }
+
+        .icon-medical::before {
+            content: '+';
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .icon-location::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            border: 3px solid currentColor;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+        }
+
+        .icon-location::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: currentColor;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -65%) rotate(45deg);
+        }
+
+        .icon-user::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            border: 2px solid currentColor;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+        }
+
+        .icon-user::after {
+            content: '';
+            width: 20px;
+            height: 12px;
+            border: 2px solid currentColor;
+            border-radius: 10px 10px 0 0;
+            position: absolute;
+            bottom: 0;
+            border-bottom: none;
+        }
+
+        .icon-building::before {
+            content: '';
+            width: 18px;
+            height: 20px;
+            border: 2px solid currentColor;
+            border-radius: 2px;
+        }
+
+        .icon-building::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 8px;
+            border: 2px solid currentColor;
+            bottom: 0;
+            border-top: none;
+        }
+
+        .icon-notes::before {
+            content: '';
+            width: 18px;
+            height: 20px;
+            border: 2px solid currentColor;
+            border-radius: 2px;
+        }
+
+        .icon-notes::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 2px;
+            background: currentColor;
+            top: 8px;
+        }
+
+        .icon-check::before {
+            content: '';
+            width: 8px;
+            height: 14px;
+            border-right: 3px solid currentColor;
+            border-bottom: 3px solid currentColor;
+            transform: rotate(45deg);
+            margin-bottom: 4px;
+        }
+
+        .hero-date .icon {
+            width: 28px;
+            height: 28px;
+        }
+
+        .hero-date .icon-calendar::before {
+            width: 24px;
+            height: 24px;
+        }
+
+        .hero-date .icon-calendar::after {
+            width: 14px;
+            top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo-owm.png" alt="OWM Logo">
+                <span>XVI OWM</span>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Start</a></li>
+                <li><a href="#about">O Warsztatach</a></li>
+                <li><a href="#program">Program</a></li>
+                <li><a href="#speakers">Prowadzący</a></li>
+                <li><a href="#location">Lokalizacja</a></li>
+                <li><a href="#registration">Rejestracja</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+            <source src="OWM-filmybaner/4770351_Gloved_Hands_1280x720.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <p class="hero-subtitle">Witamy na</p>
+            <h1 class="hero-title">XVI Opolskich Warsztatach Medycznych</h1>
+            <p class="hero-description">
+                Aktualne wytyczne leczenia ran przewlekłych, dostępy naczyniowe oraz leczenie żywieniowe
+            </p>
+            <div class="hero-date">
+                <span class="icon icon-calendar"></span>
+                <span>27-28 Listopada 2025 | Krapkowice</span>
+            </div>
+            <a href="#registration" class="cta-button">
+                Zarejestruj się teraz
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" style="margin-left: 10px; vertical-align: middle;">
+                    <path d="M10 3L9 4l5 5H3v2h11l-5 5 1 1 7-7-7-7z"/>
+                </svg>
+            </a>
+            
+            <!-- Organizatorzy -->
+            <div class="hero-organizers">
+                <p style="font-size: 0.9rem; margin-bottom: 1rem; opacity: 0.9; color: var(--white);">Organizatorzy:</p>
+                <div class="hero-organizers-logos">
+                    <div class="hero-organizer-logo">
+                        <img src="logo_organizatorzy/nutrii.png" alt="Nutrikon">
+                    </div>
+                    <div class="hero-organizer-logo">
+                        <img src="logo_organizatorzy/kcz1.png" alt="Krapkowickie Centrum Zdrowia">
+                    </div>
+                    <div class="hero-organizer-logo">
+                        <img src="logo_organizatorzy/powiat1.png" alt="Starostwo Powiatowe w Krapkowicach">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about fade-in" id="about">
+        <div class="container">
+            <h2 class="section-title">O Warsztatach</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        <strong>Opolskie Warsztaty Medyczne</strong> to cykliczne wydarzenie edukacyjne dla przedstawicieli zawodów medycznych, które odbywa się w województwie opolskim. Warsztaty skupiają się na praktycznych aspektach leczenia, takich jak terapia ran przewlekłych czy leczenie żywieniowe, a także obejmują panele dyskusyjne i wykłady poświęcone m.in. minimalizowaniu ryzyka błędów medycznych.
+                    </p>
+                    <p>
+                        <strong>XVI edycja warsztatów</strong> oferuje dwie specjalistyczne ścieżki szkoleniowe z certyfikacją kompetencji. Warsztaty mają <strong>wymiar praktyczny</strong> z zajęciami przy pacjentach oraz warsztatami z wykorzystaniem fantomów. Organizatorami są: Nutrikon sp. z o.o., Krapkowickie Centrum Zdrowia sp. z o.o. oraz Starostwo Powiatowe w Krapkowicach.
+                    </p>
+                    <p>
+                        <strong>Ścieżka 1: Leczenie Ran Przewlekłych</strong><br>
+                        Podstawowy kurs leczenia ran, terapia podciśnieniowa, kompresjoterapia, zajęcia praktyczne z pacjentami, kurs leczenia bólu.
+                    </p>
+                    <p>
+                        <strong>Ścieżka 2: Leczenie Żywieniowe</strong><br>
+                        Leczenie żywieniowe pozajelitowe i dojelitowe, endoskopowa gastropeksja z gastrostomią odżywczą, centralne dostępy naczyniowe.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <div class="slideshow-container">
+                        <img class="slideshow-image active" src="zdjecia_archiwum/IF0A6238.jpg" alt="OWM 2024" loading="lazy">
+                        <img class="slideshow-image" src="zdjecia_archiwum/IF0A6576.jpg" alt="OWM 2024" loading="lazy">
+                        <img class="slideshow-image" src="zdjecia_archiwum/IF0A6670.jpg" alt="OWM 2024" loading="lazy">
+                        <img class="slideshow-image" src="zdjecia_archiwum/IF0A6674.jpg" alt="OWM 2024" loading="lazy">
+                        <img class="slideshow-image" src="zdjecia_archiwum/IF0A6714-Poprawione-Szum.jpg" alt="OWM 2024" loading="lazy">
+                        <img class="slideshow-image" src="zdjecia_archiwum/IF0A6903.jpg" alt="OWM 2024" loading="lazy">
+                        <div class="slideshow-dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                    <p style="text-align: center; margin-top: 1rem; color: #64748b; font-size: 0.95rem; font-weight: 500;">Zdjęcia z OWM 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section class="program fade-in" id="program">
+        <div class="container">
+            <h2 class="section-title">Program Warsztatów</h2>
+            
+            <!-- Track Selection Tabs -->
+            <div class="track-tabs">
+                <button class="track-tab active" data-track="wounds">
+                    <div class="track-tab-title">Ścieżka 1: Leczenie Ran Przewlekłych</div>
+                </button>
+                <button class="track-tab" data-track="nutrition">
+                    <div class="track-tab-title">Ścieżka 2: Leczenie Żywieniowe</div>
+                </button>
+            </div>
+
+            <!-- Wounds Track Content -->
+            <div class="track-content active" id="wounds-track">
+                <!-- Day Tabs for Wounds -->
+                <div class="day-tabs">
+                    <button class="day-tab active" data-track="wounds" data-day="wounds-day1">
+                        <div>Dzień 1</div>
+                        <div class="day-date">27 listopada - Zajęcia praktyczne</div>
+                    </button>
+                    <button class="day-tab" data-track="wounds" data-day="wounds-day2">
+                        <div>Dzień 2</div>
+                        <div class="day-date">28 listopada - Zajęcia teoretyczne</div>
+                    </button>
+                </div>
+                
+                <!-- Wounds Day 1 Content -->
+                <div class="day-section active" id="wounds-day1">
+                    <div class="program-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">10:00 - 10:30</div>
+                            <div class="timeline-content">
+                                <h4>Dezynfekcja rąk</h4>
+                                <p class="timeline-speaker">Barbara Próchnicka</p>
+                                <p class="timeline-location">Gabinet Pielęgniarki Naczelnej</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">10:30 - 11:00</div>
+                            <div class="timeline-content">
+                                <h4>Metody oczyszczania ran przewlekłych, pobranie posiewu</h4>
+                                <p class="timeline-speaker">Robert Wajda</p>
+                                <p class="timeline-location">Gabinet Pielęgniarki Naczelnej</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">11:00 - 11:45</div>
+                            <div class="timeline-content">
+                                <h4>Oczyszczanie ran pacjenta - zajęcia praktyczne</h4>
+                                <p class="timeline-speaker">Pielęgniarka opatrunkowa</p>
+                                <p class="timeline-location">Oddział Chirurgii Ogólnej</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">11:45 - 12:30</div>
+                            <div class="timeline-content">
+                                <h4>Opatrunek kompresyjny</h4>
+                                <p class="timeline-speaker">Aneta Rzęsikowska</p>
+                                <p class="timeline-location">Oddział Chirurgii Ogólnej</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item break">
+                            <div class="timeline-time">12:30 - 13:00</div>
+                            <div class="timeline-content">
+                                <h4>Przerwa kawowa</h4>
+                                <p class="timeline-note">Przeniesienie do Starostwa Powiatowego</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">13:00 - 13:30</div>
+                            <div class="timeline-content">
+                                <h4>Kompresjoterapia - podstawy teoretyczne</h4>
+                                <p class="timeline-speaker">Grzegorz Krasowski</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna 2</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">13:30 - 14:30</div>
+                            <div class="timeline-content">
+                                <h4>Kompresjoterapia bandażami - zajęcia praktyczne</h4>
+                                <p class="timeline-speaker">Marta Zielińska</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna 2</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item break">
+                            <div class="timeline-time">14:30 - 15:00</div>
+                            <div class="timeline-content">
+                                <h4>Przerwa na lunch</h4>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">15:00 - 16:00</div>
+                            <div class="timeline-content">
+                                <h4>Gotowe wyroby kompresyjne w leczeniu ran</h4>
+                                <p class="timeline-speaker">Magdalena Biniecka</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">16:00 - 17:00</div>
+                            <div class="timeline-content">
+                                <h4>Rehabilitacja ruchowa przyłóżkowa</h4>
+                                <p class="timeline-speaker">Michał Krasowski</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">17:00 - 18:00</div>
+                            <div class="timeline-content">
+                                <h4>Pobieranie i ocena badań mikrobiologicznych</h4>
+                                <p class="timeline-speaker">Barbara Próchnicka</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wounds Day 2 Content -->
+                <div class="day-section" id="wounds-day2">
+                    <div class="program-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">09:00 - 09:45</div>
+                            <div class="timeline-content">
+                                <h4>Dekalog leczenia ran</h4>
+                                <p class="timeline-speaker">Grzegorz Krasowski</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">09:45 - 10:15</div>
+                            <div class="timeline-content">
+                                <h4>Rany rzadkie</h4>
+                                <p class="timeline-speaker">Katarzyna Tarara</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item sponsored">
+                            <div class="timeline-time">10:15 - 12:15</div>
+                            <div class="timeline-content">
+                                <h4>Dobór opatrunku do rany - ½ grupy</h4>
+                                <p class="timeline-speaker">Wykład sponsorowany: ConvaTec</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item sponsored">
+                            <div class="timeline-time">10:15 - 12:15</div>
+                            <div class="timeline-content">
+                                <h4>Dobór opatrunku do rany - ½ grupy</h4>
+                                <p class="timeline-speaker">Wykład sponsorowany: Urgo</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna 2</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item sponsored">
+                            <div class="timeline-time">12:15 - 13:00</div>
+                            <div class="timeline-content">
+                                <h4>Zaopatrzenia pacjenta w wyroby ortopedyczne</h4>
+                                <p class="timeline-speaker">Wykład sponsorowany: Reha-Med</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item sponsored">
+                            <div class="timeline-time">13:00 - 13:30</div>
+                            <div class="timeline-content">
+                                <h4>Terapia podciśnieniowa</h4>
+                                <p class="timeline-speaker">Wykład sponsorowany: Hartmann</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item sponsored">
+                            <div class="timeline-time">13:30 - 14:00</div>
+                            <div class="timeline-content">
+                                <h4>Opatrunki SAP w leczeniu ran trudno gojących się</h4>
+                                <p class="timeline-speaker">Wykład sponsorowany: Hartmann - Grzegorz Krasowski</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">14:00 - 14:30</div>
+                            <div class="timeline-content">
+                                <h4>Zespół stopy cukrzycowej</h4>
+                                <p class="timeline-speaker">Katarzyna Tarara</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item break">
+                            <div class="timeline-time">14:30 - 15:00</div>
+                            <div class="timeline-content">
+                                <h4>Przerwa na lunch</h4>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">15:00 - 16:00</div>
+                            <div class="timeline-content">
+                                <h4>Leczenie bólu w warunkach domowych</h4>
+                                <p class="timeline-speaker">Dorota Kala</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">16:00 - 17:00</div>
+                            <div class="timeline-content">
+                                <h4>Trudny pacjent czy słaby medyk?</h4>
+                                <p class="timeline-speaker">Ewa Woytoń</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna 2</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">17:00 - 18:00</div>
+                            <div class="timeline-content">
+                                <h4>Rozpoznawanie niedożywienia</h4>
+                                <p class="timeline-speaker">Grzegorz Krasowski</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nutrition Track Content -->
+            <div class="track-content" id="nutrition-track">
+                <!-- Day Tabs for Nutrition -->
+                <div class="day-tabs">
+                    <button class="day-tab active" data-track="nutrition" data-day="nutrition-day1">
+                        <div>Dzień 1</div>
+                        <div class="day-date">27 listopada - Zajęcia teoretyczne</div>
+                    </button>
+                    <button class="day-tab" data-track="nutrition" data-day="nutrition-day2">
+                        <div>Dzień 2</div>
+                        <div class="day-date">28 listopada - Zajęcia praktyczne + teoretyczne</div>
+                    </button>
+                </div>
+                
+                <!-- Nutrition Day 1 Content -->
+                <div class="day-section active" id="nutrition-day1">
+                    <div class="program-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">10:00 - 10:30</div>
+                            <div class="timeline-content">
+                                <h4>Leczenie żywieniowe - co, gdzie, dlaczego?</h4>
+                                <p class="timeline-speaker">Grzegorz Krasowski, Robert Wajda</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">10:30 - 11:50</div>
+                            <div class="timeline-content">
+                                <h4>Wyliczanie zapotrzebowania mieszaniny żywieniowej</h4>
+                                <p class="timeline-speaker">Grzegorz Krasowski</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">11:50 - 12:10</div>
+                            <div class="timeline-content">
+                                <h4>Kwalifikacja do leczenia żywieniowego w warunkach domowych</h4>
+                                <p class="timeline-speaker">Robert Wajda</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">12:10 - 12:20</div>
+                            <div class="timeline-content">
+                                <h4>Q&A</h4>
+                                <p class="timeline-speaker">Grzegorz Krasowski, Robert Wajda</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">12:20 - 12:40</div>
+                            <div class="timeline-content">
+                                <h4>Leczenie żywieniowe dojelitowe w warunkach domowych - dostępy</h4>
+                                <p class="timeline-speaker">Robert Wajda</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">12:40 - 13:00</div>
+                            <div class="timeline-content">
+                                <h4>Powikłania leczenia żywieniowego dojelitowego w warunkach domowych</h4>
+                                <p class="timeline-speaker">Sonia Nowak</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">13:00 - 13:20</div>
+                            <div class="timeline-content">
+                                <h4>Leczenie żywieniowe pozajelitowe - dostępy i sposoby podaży</h4>
+                                <p class="timeline-speaker">Bartłomiej Kazek</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">13:20 - 13:40</div>
+                            <div class="timeline-content">
+                                <h4>Powikłania leczenia żywieniowego pozajelitowego w warunkach domowych</h4>
+                                <p class="timeline-speaker">Lidia Haliniak</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">13:40 - 14:20</div>
+                            <div class="timeline-content">
+                                <h4>Organizacja, dokumentacja procesu leczenia, kontrola NFZ</h4>
+                                <p class="timeline-speaker">Małgorzata Konachiewicz</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item break">
+                            <div class="timeline-time">14:30 - 15:00</div>
+                            <div class="timeline-content">
+                                <h4>Przerwa na lunch</h4>
+                            </div>
+                        </div>
+                        <div class="timeline-item sponsored">
+                            <div class="timeline-time">15:00 - 15:15</div>
+                            <div class="timeline-content">
+                                <h4>Żelazo</h4>
+                                <p class="timeline-speaker">Wykład sponsorowany: Evopharma - Alicja Miklus</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Krapkowice 2</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item sponsored">
+                            <div class="timeline-time">15:15 - 15:35</div>
+                            <div class="timeline-content">
+                                <h4>Żywienie pozajelitowe – od wytycznych do praktyki</h4>
+                                <p class="timeline-speaker">Wykład sponsorowany: Baxter - Diana Wójcik</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Krapkowice 2</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item sponsored">
+                            <div class="timeline-time">15:35 - 15:55</div>
+                            <div class="timeline-content">
+                                <h4>Wykład sponsorowany</h4>
+                                <p class="timeline-speaker">Fresenius - Edyta Jasińska</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Krapkowice 2</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">16:00 - 17:00</div>
+                            <div class="timeline-content">
+                                <h4>Rehabilitacja ruchowa przyłóżkowa</h4>
+                                <p class="timeline-speaker">Michał Krasowski</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">17:00 - 18:00</div>
+                            <div class="timeline-content">
+                                <h4>Pobieranie i ocena badań mikrobiologicznych</h4>
+                                <p class="timeline-speaker">Barbara Próchnicka</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nutrition Day 2 Content -->
+                <div class="day-section" id="nutrition-day2">
+                    <div class="program-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">10:00 - 10:30</div>
+                            <div class="timeline-content">
+                                <h4>Dezynfekcja rąk I, II, III</h4>
+                                <p class="timeline-speaker">Barbara Próchnicka</p>
+                                <p class="timeline-location">Gabinet Pielęgniarki Naczelnej</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">10:30 - 11:00</div>
+                            <div class="timeline-content">
+                                <h4>Gastropeksja z gastrostomią - wytworzenie, fantom</h4>
+                                <p class="timeline-speaker">Bartłomiej Kazek</p>
+                                <p class="timeline-location">Gabinet Pielęgniarki Naczelnej</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">11:00 - 11:30</div>
+                            <div class="timeline-content">
+                                <h4>Wytworzenie dostępu żywieniowego dojelitowego</h4>
+                                <p class="timeline-speaker">Bartłomiej Kazek</p>
+                                <p class="timeline-location">Gabinet Pielęgniarki Naczelnej</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item highlight">
+                            <div class="timeline-time">10:30 - 12:30</div>
+                            <div class="timeline-content">
+                                <h4>Gastropeksja z gastrostomią - wytworzenie (praktyka)</h4>
+                                <p class="timeline-speaker">Sławomir Sobótka</p>
+                                <p class="timeline-location">Pracownia endoskopowa</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item highlight">
+                            <div class="timeline-time">10:30 - 12:30</div>
+                            <div class="timeline-content">
+                                <h4>Wytworzenie dostępu żywieniowego pozajelitowego</h4>
+                                <p class="timeline-speaker">Robert Wajda, Artur Kurzeja</p>
+                                <p class="timeline-location">Blok operacyjny</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item highlight">
+                            <div class="timeline-time">12:30 - 14:30</div>
+                            <div class="timeline-content">
+                                <h4>Przygotowanie, podłączenie leczenia dojelitowego, fantom - I, II, III</h4>
+                                <p class="timeline-speaker">Sonia Nowak</p>
+                                <p class="timeline-location">Gabinet Pielęgniarki Naczelnej</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item highlight">
+                            <div class="timeline-time">12:30 - 14:30</div>
+                            <div class="timeline-content">
+                                <h4>Przygotowanie i podłączenie zestawu do żywienia pozajelitowego - I, II, III</h4>
+                                <p class="timeline-speaker">Lidia Haliniak</p>
+                                <p class="timeline-location">Oddział Chirurgii Ogólnej</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item highlight">
+                            <div class="timeline-time">12:30 - 14:30</div>
+                            <div class="timeline-content">
+                                <h4>Szkolenie pacjenta i rodziny - I, II, III</h4>
+                                <p class="timeline-speaker">Aneta Rzęsikowska</p>
+                                <p class="timeline-location">Oddział Chirurgii Ogólnej</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item break">
+                            <div class="timeline-time">14:30 - 15:00</div>
+                            <div class="timeline-content">
+                                <h4>Przerwa na lunch</h4>
+                                <p class="timeline-note">Zajęcia przenoszą się do Starostwa Powiatowego</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">15:00 - 16:00</div>
+                            <div class="timeline-content">
+                                <h4>Leczenie bólu w warunkach domowych</h4>
+                                <p class="timeline-speaker">Dorota Kala</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">16:00 - 17:00</div>
+                            <div class="timeline-content">
+                                <h4>Trudny pacjent czy słaby medyk?</h4>
+                                <p class="timeline-speaker">Ewa Woytoń</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">17:00 - 18:00</div>
+                            <div class="timeline-content">
+                                <h4>Rozpoznawanie niedożywienia</h4>
+                                <p class="timeline-speaker">Grzegorz Krasowski</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item important">
+                            <div class="timeline-time">18:00 - 18:30</div>
+                            <div class="timeline-content">
+                                <h4>Test zaliczeniowy</h4>
+                                <p class="timeline-speaker">Grzegorz Krasowski</p>
+                                <p class="timeline-location">Starostwo Powiatowe - Sala Konferencyjna</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speakers Section -->
+    <section class="speakers fade-in" id="speakers">
+        <div class="container">
+            <h2 class="section-title">Prowadzący</h2>
+            <div class="speakers-grid">
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img src="prelegenci/krasowski.jpg" alt="Grzegorz Krasowski">
+                    </div>
+                    <div class="speaker-info">
+                        <div class="speaker-name">Grzegorz Krasowski</div>
+                        <div class="speaker-title">Główny prowadzący, specjalista leczenia ran i żywienia</div>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img src="prelegenci/wajda.jpeg" alt="Robert Wajda">
+                    </div>
+                    <div class="speaker-info">
+                        <div class="speaker-name">Robert Wajda</div>
+                        <div class="speaker-title">Specjalista leczenia żywieniowego</div>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img src="prelegenci/prochnicka.png" alt="Barbara Próchnicka">
+                    </div>
+                    <div class="speaker-info">
+                        <div class="speaker-name">Barbara Próchnicka</div>
+                        <div class="speaker-title">Ekspert dezynfekcji i badań mikrobiologicznych</div>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img src="prelegenci/tarara.png" alt="Katarzyna Tarara">
+                    </div>
+                    <div class="speaker-info">
+                        <div class="speaker-name">Katarzyna Tarara</div>
+                        <div class="speaker-title">Specjalista leczenia ran rzadkich i zespołu stopy cukrzycowej</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Section -->
+    <section class="message-section fade-in" style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(6, 182, 212, 0.05)); padding: 4rem 0;">
+        <div class="container">
+            <div class="message-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-color); margin-bottom: 2rem;">
+                    Uczestnicy poszczególnych kursów otrzymają możliwość zdobycia stosownych kompetencji,<br>a ukończenie kursu będzie certyfikowane.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-color); margin-bottom: 3rem;">
+                    Mam nadzieję, że tak jak i ostatnio będą Państwo zadowoleni z poruszonych tematów jak i formuły spotkania.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-color); margin-bottom: 0.5rem;">
+                    Do zobaczenia na XVI Opolskich Warsztatach Medycznych
+                </p>
+                <p style="font-family: 'Caveat', cursive; font-size: 2.5rem; color: var(--primary-color); font-weight: 700; margin-top: 1.5rem;">
+                    dr n. med. Grzegorz Krasowski
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location fade-in" id="location">
+        <div class="container">
+            <h2 class="section-title">Lokalizacja</h2>
+            <div class="location-content">
+                <div class="location-details">
+                    <div class="location-item">
+                        <div class="location-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 4 C11 4 7 8 7 13 C7 19 16 28 16 28 C16 28 25 19 25 13 C25 8 21 4 16 4 Z" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="16" cy="13" r="4"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>Starostwo Powiatowe w Krapkowicach</strong><br>
+                            ul. Kilińskiego 1, 47-303 Krapkowice<br>
+                            <a href="https://maps.google.com/?q=Starostwo+Powiatowe+Krapkowice+Kilińskiego+1" target="_blank" style="color: var(--primary-color); text-decoration: none; margin-top: 0.5rem; display: inline-block;">
+                                Zobacz na mapie →
+                            </a>
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 20 L6 24 L10 24 M22 24 L26 24 L26 20" stroke-linecap="round"/>
+                                <rect x="4" y="14" width="24" height="6" rx="1"/>
+                                <path d="M8 14 L10 8 L22 8 L24 14" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="10" cy="24" r="2"/>
+                                <circle cx="22" cy="24" r="2"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>Parking</strong><br>
+                            Bezpłatny parking dla uczestników
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="6" y="10" width="20" height="14" rx="1"/>
+                                <path d="M6 14 L26 14 M10 10 L10 6 M16 10 L16 6 M22 10 L22 6"/>
+                                <circle cx="11" cy="20" r="1.5" fill="currentColor"/>
+                                <circle cx="21" cy="20" r="1.5" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>Dojazd</strong><br>
+                            Autostrada A4 - zjazd Krapkowice
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 26 L6 14 L16 6 L26 14 L26 26 Z"/>
+                                <rect x="13" y="18" width="6" height="8"/>
+                                <rect x="10" y="12" width="4" height="4"/>
+                                <rect x="18" y="12" width="4" height="4"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>Nocleg</strong><br>
+                            Oferty hotelowe dla uczestników
+                        </div>
+                    </div>
+                </div>
+                <div class="location-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2538.5!2d17.965!3d50.467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4710c3e3d8f8e8c7%3A0x7c8f9e8c9d8e8c8d!2sStarostwo%20Powiatowe%20w%20Krapkowicach!5e0!3m2!1spl!2spl!4v1234567890"
+                        width="100%" 
+                        height="400" 
+                        style="border:0; border-radius: 15px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section class="registration fade-in" id="registration">
+        <div class="container">
+            <h2 class="section-title">Rejestracja na warsztaty</h2>
+            <div class="registration-info">
+                <div class="price-cards">
+                    <div class="price-card">
+                        <h3>Leczenie Ran Przewlekłych</h3>
+                        <div class="price">970 zł</div>
+                        <ul class="price-features">
+                            <li>Podstawowy kurs leczenia ran</li>
+                            <li>Zajęcia praktyczne z pacjentami</li>
+                            <li>Kurs leczenia bólu</li>
+                            <li>Kurs zakładania opatrunków podciśnieniowych</li>
+                            <li>Kurs kompresjoterapii</li>
+                            <li>Certyfikat kompetencji</li>
+                        </ul>
+                    </div>
+                    <div class="price-card">
+                        <h3>Leczenie Żywieniowe</h3>
+                        <div class="price">1100 zł</div>
+                        <ul class="price-features">
+                            <li>Kurs żywienia pozajelitowego i dojelitowego</li>
+                            <li>Endoskopowa gastropeksja z gastrostomią</li>
+                            <li>Kurs leczenia bólu</li>
+                            <li>Wytwarzanie centralnych dostępów naczyniowych</li>
+                            <li>Warsztaty praktyczne</li>
+                            <li>Certyfikat kompetencji</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="registration-cta">
+                    <p class="registration-text">
+                        Rejestracja odbywa się przez oficjalny formularz zgłoszeniowy organizatora.<br>
+                        Kliknij poniższy przycisk, aby przejść do formularza rejestracyjnego.
+                    </p>
+                    <a href="https://nutrikon.pl/zgloszenie-na-16-owm/" target="_blank" class="submit-button">
+                        Przejdź do formularza rejestracji
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" style="margin-left: 10px; vertical-align: middle;">
+                            <path d="M10 3L9 4l5 5H3v2h11l-5 5 1 1 7-7-7-7z"/>
+                        </svg>
+                    </a>
+                    <p class="registration-note">
+                        Formularz otworzy się w nowej karcie
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners fade-in" id="partners">
+        <div class="container">
+            <h2 class="section-title">Partnerzy</h2>
+            <div class="partners-grid">
+                <div class="partner-logo">
+                    <img src="logo_partnerzy/ConvaTec-Logo.wine.png" alt="ConvaTec">
+                </div>
+                <div class="partner-logo">
+                    <img src="logo_partnerzy/12urgo-768x161.webp" alt="Urgo">
+                </div>
+                <div class="partner-logo">
+                    <img src="logo_partnerzy/2hartmann-logo_62c6fdb32ac07.png" alt="Hartmann">
+                </div>
+                <div class="partner-logo">
+                    <img src="logo_partnerzy/2fresenius-kabi-polska-sp-z-o-o.webp" alt="Fresenius Kabi">
+                </div>
+                <div class="partner-logo">
+                    <img src="logo_partnerzy/0001035_evo-pharma.jpeg" alt="Evopharma">
+                </div>
+                <div class="partner-logo">
+                    <img src="logo_partnerzy/2Baxter_Wordmark_2022_Blue_RGB_300dpi.jpg" alt="Baxter">
+                </div>
+                <div class="partner-logo">
+                    <img src="logo_partnerzy/2Unknown.jpeg" alt="Reha-Med">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>XVI Opolskie Warsztaty Medyczne</h3>
+                <p>Krapkowice, 27-28 listopada 2025</p>
+                <div style="margin: 1.5rem 0; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                    <!-- Wszystkie logo obok siebie -->
+                    <a href="https://nutrikon.pl" target="_blank" rel="noopener noreferrer" style="display: inline-block;">
+                        <img src="logo_organizatorzy/nutrii.png" alt="Nutrikon" style="max-width: 110px; height: auto; transition: transform 0.3s ease;">
+                    </a>
+                    <a href="https://kcz.krapkowice.pl" target="_blank" rel="noopener noreferrer" style="display: inline-block;">
+                        <img src="logo_organizatorzy/kcz1.png" alt="Krapkowickie Centrum Zdrowia" style="max-width: 110px; height: auto; transition: transform 0.3s ease;">
+                    </a>
+                    <a href="https://powiatkrapkowicki.pl" target="_blank" rel="noopener noreferrer" style="display: inline-block;">
+                        <img src="logo_organizatorzy/powiat1.png" alt="Powiat Krapkowicki" style="max-width: 110px; height: auto; transition: transform 0.3s ease;">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <p>✉ nutrikon@nutrikon.pl</p>
+                <p>☎ +48 792 325 000</p>
+                <p>☎ +48 792 766 000</p>
+                <p>⚕ Leczenie żywieniowe: +48 796 539 000</p>
+                <p>ul. Krakowska 32A, 45-075 Opole</p>
+            </div>
+            <div class="footer-section">
+                <h3>Przydatne linki</h3>
+                <a href="#about">O Warsztatach</a>
+                <a href="#program">Program</a>
+                <a href="#speakers">Prowadzący</a>
+                <a href="#registration">Rejestracja</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 XVI Opolskie Warsztaty Medyczne. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Slideshow for about section
+        const slideshowImages = document.querySelectorAll('.slideshow-image');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlideIndex = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            slideshowImages[currentSlideIndex].classList.remove('active');
+            dots[currentSlideIndex].classList.remove('active');
+            currentSlideIndex = index;
+            slideshowImages[currentSlideIndex].classList.add('active');
+            dots[currentSlideIndex].classList.add('active');
+        }
+
+        function changeSlide() {
+            const nextIndex = (currentSlideIndex + 1) % slideshowImages.length;
+            showSlide(nextIndex);
+        }
+
+        // Change slide every 3 seconds
+        if (slideshowImages.length > 0) {
+            slideInterval = setInterval(changeSlide, 3000);
+            
+            // Add click event to dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    clearInterval(slideInterval);
+                    showSlide(index);
+                    slideInterval = setInterval(changeSlide, 3000);
+                });
+            });
+        }
+
+        // Video rotation for hero section
+        const heroVideo = document.querySelector('.hero-video');
+        const videos = [
+            'OWM-filmybaner/4770351_Gloved_Hands_1280x720.mp4',
+            'OWM-filmybaner/4777803_Hospital_Instruments_1280x720.mp4',
+            'OWM-filmybaner/6036161_Surgeon_Using_1280x720.mp4'
+        ];
+        let currentVideoIndex = 0;
+
+        function changeVideo() {
+            // Fade out
+            heroVideo.classList.add('fade');
+            
+            setTimeout(() => {
+                currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+                heroVideo.querySelector('source').src = videos[currentVideoIndex];
+                heroVideo.load();
+                
+                // Fade in
+                setTimeout(() => {
+                    heroVideo.classList.remove('fade');
+                }, 100);
+            }, 1000);
+        }
+
+        // Change video every 15 seconds
+        if (heroVideo && window.innerWidth > 768) {
+            setInterval(changeVideo, 15000);
+        }
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Track tab switching functionality
+        const trackTabs = document.querySelectorAll('.track-tab');
+        
+        trackTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const trackId = tab.getAttribute('data-track');
+                
+                // Remove active class from all track tabs and content
+                document.querySelectorAll('.track-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.track-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active');
+                const trackContent = document.getElementById(trackId + '-track');
+                if (trackContent) {
+                    trackContent.classList.add('active');
+                }
+            });
+        });
+
+        // Day tab switching functionality
+        const dayTabs = document.querySelectorAll('.day-tab');
+        
+        dayTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const dayId = tab.getAttribute('data-day');
+                const trackId = tab.getAttribute('data-track');
+                
+                // Remove active class from all day tabs in current track
+                const currentTrack = document.getElementById(trackId + '-track');
+                if (currentTrack) {
+                    currentTrack.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active'));
+                    currentTrack.querySelectorAll('.day-section').forEach(s => s.classList.remove('active'));
+                }
+                
+                // Add active class to clicked tab and corresponding section
+                tab.classList.add('active');
+                const daySection = document.getElementById(dayId);
+                if (daySection) {
+                    daySection.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll with offset for fixed navbar
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const offset = 80;
+                const targetPosition = target.offsetTop - offset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
