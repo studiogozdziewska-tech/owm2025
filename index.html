@@ -431,6 +431,76 @@
             background: var(--white);
         }
 
+        /* Countdown Timer */
+        .countdown-container {
+            text-align: center;
+            margin: 4rem auto 0;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(37, 99, 235, 0.1);
+        }
+
+        .countdown-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.1);
+            min-width: 100px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(37, 99, 235, 0.2);
+        }
+
+        .countdown-value {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--medical-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .countdown-separator {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 0 0.5rem;
+        }
+
         /* Program Section - Professional Design */
         .program-header {
             text-align: center;
@@ -522,13 +592,13 @@
 
         .track-tab:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
         }
 
         .track-tab.active {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-color: var(--primary-color);
-            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-color: #10b981;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
         }
 
         .track-tab-title {
@@ -536,10 +606,33 @@
             font-weight: 600;
             margin-bottom: 0.5rem;
             color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
         }
 
         .track-tab.active .track-tab-title {
             color: var(--white);
+        }
+
+        .track-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: var(--white);
+            color: #10b981;
+            font-size: 1.5rem;
+            font-weight: 800;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+        .track-tab.active .track-number {
+            background: rgba(255, 255, 255, 0.95);
+            color: #059669;
         }
 
         .track-tab-price {
@@ -1160,10 +1253,6 @@
                 left: 0;
             }
 
-            .hero-video {
-                display: none;
-            }
-
             .hero-organizers {
                 margin-top: 2rem;
             }
@@ -1214,6 +1303,58 @@
 
             .timeline-time {
                 min-height: auto;
+            }
+
+            .countdown-container {
+                padding: 1.5rem;
+                margin: 3rem auto 0;
+            }
+
+            .countdown-title {
+                font-size: 1.3rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .countdown-timer {
+                gap: 0.5rem;
+            }
+
+            .countdown-item {
+                padding: 1rem 1.5rem;
+                min-width: 70px;
+            }
+
+            .countdown-value {
+                font-size: 2rem;
+            }
+
+            .countdown-label {
+                font-size: 0.7rem;
+            }
+
+            .countdown-separator {
+                font-size: 1.8rem;
+                margin: 0 0.2rem;
+            }
+
+            .track-tabs {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .track-tab {
+                min-width: 100%;
+            }
+
+            .track-tab-title {
+                font-size: 1rem;
+                gap: 0.8rem;
+            }
+
+            .track-number {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
             }
         }
 
@@ -1387,7 +1528,7 @@
                 <li><a href="#home">Start</a></li>
                 <li><a href="#about">O Warsztatach</a></li>
                 <li><a href="#program">Program</a></li>
-                <li><a href="#speakers">Prowadzący</a></li>
+                <li><a href="#speakers">Prelegenci</a></li>
                 <li><a href="#location">Lokalizacja</a></li>
                 <li><a href="#registration">Rejestracja</a></li>
             </ul>
@@ -1447,11 +1588,17 @@
                         <strong>XVI edycja warsztatów</strong> oferuje dwie specjalistyczne ścieżki szkoleniowe z certyfikacją kompetencji. Warsztaty mają <strong>wymiar praktyczny</strong> z zajęciami przy pacjentach oraz warsztatami z wykorzystaniem fantomów. Organizatorami są: Nutrikon sp. z o.o., Krapkowickie Centrum Zdrowia sp. z o.o. oraz Starostwo Powiatowe w Krapkowicach.
                     </p>
                     <p>
-                        <strong>Ścieżka 1: Leczenie Ran Przewlekłych</strong><br>
+                        <strong style="color: #10b981; font-size: 1.1em; display: inline-flex; align-items: center; gap: 0.5rem;">
+                            <span style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: linear-gradient(135deg, #10b981, #059669); color: white; font-size: 1.1rem; font-weight: 800; border-radius: 8px;">1</span>
+                            Ścieżka 1: Leczenie Ran Przewlekłych
+                        </strong><br>
                         Podstawowy kurs leczenia ran, terapia podciśnieniowa, kompresjoterapia, zajęcia praktyczne z pacjentami, kurs leczenia bólu.
                     </p>
                     <p>
-                        <strong>Ścieżka 2: Leczenie Żywieniowe</strong><br>
+                        <strong style="color: #10b981; font-size: 1.1em; display: inline-flex; align-items: center; gap: 0.5rem;">
+                            <span style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: linear-gradient(135deg, #10b981, #059669); color: white; font-size: 1.1rem; font-weight: 800; border-radius: 8px;">2</span>
+                            Ścieżka 2: Leczenie Żywieniowe
+                        </strong><br>
                         Leczenie żywieniowe pozajelitowe i dojelitowe, endoskopowa gastropeksja z gastrostomią odżywczą, centralne dostępy naczyniowe.
                     </p>
                 </div>
@@ -1475,6 +1622,32 @@
                     <p style="text-align: center; margin-top: 1rem; color: #64748b; font-size: 0.95rem; font-weight: 500;">Zdjęcia z OWM 2024</p>
                 </div>
             </div>
+            
+            <!-- Countdown Timer -->
+            <div class="countdown-container">
+                <h3 class="countdown-title">Do warsztatów zostało</h3>
+                <div class="countdown-timer">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days">0</span>
+                        <span class="countdown-label">Dni</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">0</span>
+                        <span class="countdown-label">Godzin</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">0</span>
+                        <span class="countdown-label">Minut</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">0</span>
+                        <span class="countdown-label">Sekund</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1486,10 +1659,16 @@
             <!-- Track Selection Tabs -->
             <div class="track-tabs">
                 <button class="track-tab active" data-track="wounds">
-                    <div class="track-tab-title">&#346;cie&#380;ka 1: Leczenie Ran Przew&#322;ek&#322;ych</div>
+                    <div class="track-tab-title">
+                        <span class="track-number">1</span>
+                        <span>&#346;cie&#380;ka 1: Leczenie Ran Przew&#322;ek&#322;ych</span>
+                    </div>
                 </button>
                 <button class="track-tab" data-track="nutrition">
-                    <div class="track-tab-title">&#346;cie&#380;ka 2: Leczenie &#379;ywieniowe</div>
+                    <div class="track-tab-title">
+                        <span class="track-number">2</span>
+                        <span>&#346;cie&#380;ka 2: Leczenie &#379;ywieniowe</span>
+                    </div>
                 </button>
             </div>
 
@@ -1952,7 +2131,7 @@
     <!-- Speakers Section -->
     <section class="speakers fade-in" id="speakers">
         <div class="container">
-            <h2 class="section-title">Prowadzący</h2>
+            <h2 class="section-title">Prelegenci</h2>
             <div class="speakers-grid">
                 <div class="speaker-card">
                     <div class="speaker-image">
@@ -1988,6 +2167,33 @@
                     <div class="speaker-info">
                         <div class="speaker-name">Katarzyna Tarara</div>
                         <div class="speaker-title">Specjalista leczenia ran rzadkich i zespołu stopy cukrzycowej</div>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img src="prelegenci/kala.jpg" alt="Dorota Kala">
+                    </div>
+                    <div class="speaker-info">
+                        <div class="speaker-name">Dorota Kala</div>
+                        <div class="speaker-title">Specjalista leczenia bólu w warunkach domowych</div>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img src="prelegenci/woyton.jpg" alt="Ewa Woytoń">
+                    </div>
+                    <div class="speaker-info">
+                        <div class="speaker-name">Ewa Woytoń</div>
+                        <div class="speaker-title">Psycholog, ekspert komunikacji z pacjentami</div>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img src="prelegenci/sobotka.jpg" alt="Sobotka">
+                    </div>
+                    <div class="speaker-info">
+                        <div class="speaker-name">Sobotka</div>
+                        <div class="speaker-title">Ekspert medyczny</div>
                     </div>
                 </div>
             </div>
@@ -2029,10 +2235,7 @@
                         </div>
                         <div>
                             <strong>Starostwo Powiatowe w Krapkowicach</strong><br>
-                            ul. Kilińskiego 1, 47-303 Krapkowice<br>
-                            <a href="https://maps.google.com/?q=Starostwo+Powiatowe+Krapkowice+Kilińskiego+1" target="_blank" style="color: var(--primary-color); text-decoration: none; margin-top: 0.5rem; display: inline-block;">
-                                Zobacz na mapie →
-                            </a>
+                            ul. Kilińskiego 1, 47-303 Krapkowice
                         </div>
                     </div>
                     <div class="location-item">
@@ -2205,7 +2408,7 @@
                 <h3>Przydatne linki</h3>
                 <a href="#about">O Warsztatach</a>
                 <a href="#program">Program</a>
-                <a href="#speakers">Prowadzący</a>
+                <a href="#speakers">Prelegenci</a>
                 <a href="#registration">Rejestracja</a>
             </div>
         </div>
@@ -2379,6 +2582,34 @@
                 });
             });
         });
+
+        // Countdown Timer
+        function updateCountdown() {
+            const workshopDate = new Date('2025-11-27T10:00:00');
+            const now = new Date();
+            const difference = workshopDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            } else {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+            }
+        }
+
+        // Update countdown every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
     </script>
 </body>
 </html>
